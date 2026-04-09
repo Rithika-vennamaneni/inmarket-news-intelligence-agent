@@ -172,7 +172,14 @@ Keep API keys in environment-backed secret stores only. Restrict CORS to known f
 - NewsAPI free tier limits to 100 requests/day and excludes articles older than 1 month.
 - Frontend backend URL must be set via `VITE_API_URL` env var for non-local deployment.
 
-## Development Notes
-- Agentic IDE used: GitHub Copilot
-- LLM for summarization: Groq llama3-8b-8192
-- All prompts used during development are documented in `PROMPTS.md`
+## Tools Used During Development
+
+**Agentic IDE:** GitHub Copilot (Agent mode)  
+Used to scaffold and build all three services 
+through structured prompts. All prompts are 
+documented in PROMPTS.md.
+
+**LLM for code generation:** Claude (Anthropic)  
+Used to think through architecture decisions, 
+plan prompt structure, debug issues, and review 
+code quality during development.
