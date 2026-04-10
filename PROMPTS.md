@@ -41,7 +41,7 @@ I included security requirements, error handling
 rules, and code principles directly in the prompt 
 rather than fixing them after generation. The goal 
 was to get production-grade scaffolding on the 
-first pass, not iterate toward it.
+first pass.
 
 **Prompt used:**
 Build a production-grade MCP Server using FastAPI 
@@ -94,28 +94,20 @@ error responses, and startup validation for
 environment variables.
 
 
-## Phase 1b — MCP Middleware and Observability
+## Phase 1b — MCP Middleware
 
 **Why I added this separately:**
-Observability is not optional in a system with 
-multiple services. Without request logging and 
-request IDs, debugging cross-service failures 
-means guessing. I added this as a focused second 
-prompt rather than bloating the first one.
+I didn't want to bloat the first prompt. 
+Middleware has nothing to do with NewsAPI 
+logic so it got its own focused prompt.
 
 **Prompt used:**
-Add to the MCP server:
-- Request logging middleware that logs method, 
-  path, status code, and response time for 
-  every request
-- CORS middleware configured properly
-- X-Request-ID header on every response for 
-  distributed tracing
+Add request logging, CORS middleware, and 
+an X-Request-ID header to every response 
+on the MCP server.
 
 **What it generated:**
-Logging middleware, CORS configuration, and 
-request ID injection on all responses.
-
+Logging, CORS, and request IDs on all responses.
 
 ## Phase 2 — Agent Backend
 
@@ -132,7 +124,7 @@ I spent more time on tool descriptions than any
 other part of this prompt. The agent decides 
 which tool to call by reading those descriptions. 
 I made them specific enough that the right tool 
-gets selected for brand queries, category queries, 
+gets selected for brand queries, category queries 
 and general search without any conditional logic 
 in my code.
 
